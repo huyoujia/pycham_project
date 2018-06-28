@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <script src="https://cdn.bootcss.com/jquery/1.2.3/jquery.min.js"></script>
+<select  id="pro">
+    <option value="">请选择省</option>
+</select>
+<select  id="city">
+    <option value="">请选择市</option>
+</select>
+<select  id="dis">
+    <option value="">请选择区县</option>
+</select>
+<script type="text/javascript">
+
+$(function () {
+    $.get('/area1/',function (dic) {
+        pro=$('#pro');
+        $.each(dic.data,function (inded,item) {
+            pro.append('<option value ='+item[0]+'>'+item[1]+'</option>')
+        })
+    });
+
+    $('#pro').change(function () {
+        $.post($(this).val()+'/',function (dic) {
+            city = $('#city');
+            city.empty().append('<option value="">请选择市</option>');
+            $.each(dic.data,function (index,item) {
+                city.append('<option value ='+item.id+'>'+item.title+'</option>')
+
+            })
+
+        });
+
+    });
+    $('#city').change(function () {
+        $.post($(this).val()+'/',function (dic) {
+            dis = $('#dis');
+            dis.empty().append('<option value="">请选择县</option>');
+            $.each(dic.data,function (index,item) {
+                dis.append('<option value ='+item.id+'>'+item.title+'</option>')
+
+            })
+
+        });
+
+    });
+
+
+});
+
+
+</script>
+
+</body>
+</html>

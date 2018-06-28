@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="{% url 'jishi:registerhandle' %}" method="post">
+    {% csrf_token %}
+    <span>用户名:</span>
+    <input type="text" name="uname"><br>
+    <span>密码:</span>
+    <input type="password" name="upwd"><br>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body{
+        background-image: url("/static/media/4.jpeg");
+    }
+    .title{
+        opacity: 0.7;
+    }
+    .content{
+        height: 300px;
+        width: 800px;
+        opacity: 0.7;
+    }
+</style>
+</head>
+<body>
+{#写博客的页面#}
+
+<form action="{% url 'blog:editpagehandle' %}" method="post" >
+    {% csrf_token %}
+    标题:<input type="text" name="title" placeholder="请输入标题" class="title"><br><br>
+    内容:<textarea name="content" placeholder="请输入内容" class="content"></textarea>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>

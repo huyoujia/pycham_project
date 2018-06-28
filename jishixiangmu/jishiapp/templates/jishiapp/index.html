@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{#首页#}
+<a href="{% url 'jishi:register' %}">注册</a>
+<br>
+<a href="{% url 'jishi:login' %}">登录</a>
+<br>
+<a href="{% url 'jishi:liuyanban' %}">留言板</a>
+
+{% for foo in a %}
+    名字是:
+    {{ foo.name }}<br>
+    邮箱是:
+    {{ foo.email }}<br>
+    地址是:
+    {{ foo.address }}<br>
+    内容是:
+    {{ foo.message }}<br>
+{% endfor %}
+
+</body>
+</html>

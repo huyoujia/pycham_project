@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body{
+        background-image:url("/static/media/3.jpg");
+    }
+    .box1{
+        width:100%;
+        height: 80px;
+    }
+    .h1{
+        display: inline-block;
+        float: left;
+    }
+    .h3{
+        display:inline-block;
+        text-align: right;
+        float: right;
+    }
+</style>
+</head>
+<body>
+{#首页#}
+
+<div class="box1">
+    <h1 class="h1">我的博客</h1><br><br>
+    <h3 class="h3"><a href="{% url 'blog:editpage' %}" style="text-decoration: none">编辑博客</a></h3>
+</div>
+<ul>
+{% for item in list %}
+    <li><a href="{% url 'blog:detail' item.pk %}">{{ item.atitle }}</a></li>
+{% endfor %}
+</ul>
+</body>
+</html>

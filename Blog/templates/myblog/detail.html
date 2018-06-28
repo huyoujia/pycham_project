@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-image: url("/static/media/5.jpg");
+        }
+        .a1{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+
+</head>
+<body>
+{#内容#}
+
+标题:<h1>{{ article.atitle }}</h1><br>
+内容:<h4>{{ article.acontent }}</h4>
+最后一次改动时间:<h4>{{ article.apub_datetime }}</h4>
+<a href="{% url 'blog:changehandle' article.id %}" class="a1">修改</a><br>
+<a href="{% url 'blog:delete' article.id %} " class="a1">删除</a><br>
+<a href="{% url 'blog:index' %}" class="a1">返回首页<br>
+
+</body>
+</html>

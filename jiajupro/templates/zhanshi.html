@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>产品展示</title>
+    <link rel="stylesheet" type="text/css" href="/static/style/index.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/style/guanyu.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/style/dingzhi.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/style/zixun.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/style/lianxiwomen.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/style/zhanshi.css"/>
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/index.js"></script>
+
+
+</head>
+
+<body>
+<div id="huanying">
+    <div class="huanying_con">
+        <p>欢迎来到某某公司</p>
+        <ul>
+            <li><a href="#">官方微信</a></li>
+            <li><a href="#">收藏本站</a></li>
+            <li><a style="padding-right:0; background:none" href="#">English</a></li>
+        </ul>
+    </div>
+</div>
+<div id="logo">
+    <div class="logo_con">
+        <div class="logo">
+            <a href="index.html"><img src="/static/images/logo_s.png"/></a>
+        </div>
+        <div class="logo_r">
+            <p>免费咨询热线：0588-9988-988</p>
+            <form action="" method="get">
+                <input type="search" value="请输入搜索产品" onfocus="if(this.value=='请输入搜索产品')this.value=''"
+                       onblur="if(this.value=='')this.value='请输入搜索产品'"/>
+                <a href="#">
+                    <img src="/static/images/z_sousuo.jpg"/>
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="nav">
+    <div class="nav_con_gb">
+        <ul class="nav_con">
+            <li>
+                <div class="nav_con_sy">
+                    <a href="{% url 'jiaju:index' %}">首页</a>
+                    <a href="{% url 'jiaju:index' %}">首页</a>
+                </div>
+            </li>
+
+            <li>
+                <div class="nav_con_sy">
+                    <a href="{% url 'jiaju:guanyu' %}">关于我们</a>
+                    <a href="{% url 'jiaju:guanyu' %}">关于我们</a>
+                </div>
+            </li>
+
+            <li class="shouye">
+                <div class="nav_con_sy">
+                    <a href="{% url 'jiaju:zhanshi' %}">产品展示</a>
+                    <a href="{% url 'jiaju:zhanshi' %}">产品展示</a>
+                </div>
+            </li>
+            <li>
+                <div class="nav_con_sy">
+                    <a href="{% url 'jiaju:dingzhi' %}">在线定制</a>
+                    <a href="{% url 'jiaju:dingzhi' %}">在线定制</a>
+                </div>
+            </li>
+            <li>
+                <div class="nav_con_sy">
+                    <a href="{% url 'jiaju:dongtai' %}">实时动态</a>
+                    <a href="{% url 'jiaju:dongtai' %}">实时动态</a>
+                </div>
+            </li>
+            <li>
+                <div class="nav_con_sy">
+                    <a href="{% url 'jiaju:zixun' %}">筑梦资讯</a>
+                    <a href="{% url 'jiaju:zixun' %}">筑梦资讯</a>
+                </div>
+            </li>
+            <li>
+                <div class="nav_con_sy">
+                    <a href="{% url 'jiaju:lianxiwomen' %}">联系我们</a>
+                    <a href="{% url 'jiaju:lianxiwomen' %}">联系我们</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="lx_banner">
+    <!--<div class="ab_banner_con">
+      <div class="ab_banner_con_k">
+        <img src="/static/images/ab_banner_wz.png" />
+      </div>
+    </div>-->
+</div>
+<div id="zs_con">
+    <div class="zs_xg">
+        {#    列表页的分类#}
+        <ul class="zs_nav">
+            {% for foo in category_list %}
+                <li>
+                    <a href="{% url 'jiaju:show' foo.id %}">
+                        {{ foo.name }}
+                    </a>
+                </li>
+
+            {% endfor %}
+
+            {#            <li>#}
+            {#                <a>#}
+            {#                    沙发#}
+            {#                </a>#}
+            {#            </li>#}
+
+        </ul>
+        {#现代系列#}
+        <ul class="zs_nav_tu">
+            <p>{{ modern.name }}</p>
+        </ul>
+        {#        列表家居#}
+        <ul class="zs_con_tu">
+
+            {% for Furnishing in Furnishing_list  %}
+                <li style="width:315px; height: 450px">
+                    <a>
+                        <img src="/{{ Furnishing.Fimage }}" style="width: 315px; height: 450px;">
+                        <div class="zs_con_tu_s">
+                            <p>{{ Furnishing.btitle }}</p>
+                        </div>
+                        <div class="zs_con_tu_x"></div>
+                    </a>
+
+                </li>
+
+            {% endfor %}
+
+
+        </ul>
+
+
+{#        <ul class="zs_con_zh">#}
+{#            <div class="zs_con_jz">#}
+{#                <li><a href="#">〈</a></li>#}
+{#                <li><a href="#">1</a></li>#}
+{#                <li><a href="#">2</a></li>#}
+{#                <li><a href="#">3</a></li>#}
+{#                <li><a href="#">〉</a></li>#}
+{#            </div>#}
+{#        </ul>#}
+    </div>
+</div>
+
+
+<div id="footer">
+    <div class="footer_con">
+        <a href="index.html">
+            <img src="/static/images/logox.jpg"/>
+        </a>
+        <span>Copyright © 2014 某某家具 All Rights Reserved . 技术支持：</span>
+    </div>
+</div>
+</body>
+</html>

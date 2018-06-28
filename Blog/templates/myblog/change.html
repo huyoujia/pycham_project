@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    body{
+        background-image: url("/static/media/4.jpeg");
+    }
+    .title{
+        opacity: 0.7;
+    }
+    .content{
+        height: 300px;
+        width: 800px;
+        opacity: 0.7;
+    }
+</style>
+</head>
+<body>
+<form action="{% url 'blog:change' a.id%}" method="post" >
+    {% csrf_token %}
+    标题:<input type="text" name="title" value="{{ a.atitle }}" class="title"><br><br>
+    内容:<textarea name="content" class="content">{{ a.acontent }}</textarea>
+    <input type="submit" value="修改">
+
+
+</form>
+</body>
+</html>
