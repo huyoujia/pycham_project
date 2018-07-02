@@ -37,11 +37,12 @@
             </div>
             <div class="logo_r">
                 <p>免费咨询热线：0588-9988-988</p>
-                <form action="" method="get">
-                    <input type="search" value="请输入搜索产品" onfocus="if(this.value=='请输入搜索产品')this.value=''"
+                <form action="{% url 'jiaju:article_search' %}" method="post">
+                    {% csrf_token %}
+                    <input type="search" name="keyword" value="请输入搜索产品" onfocus="if(this.value=='请输入搜索产品')this.value=''"
                            onblur="if(this.value=='')this.value='请输入搜索产品'"/>
                     <a href="#">
-                        <img src="/static/images/z_sousuo.jpg"/>
+                        <img src="/static/images/z_sousuo.jpg"style="opacity: 0;"/>
                     </a>
                 </form>
             </div>
@@ -132,7 +133,7 @@
                         <li>
                             <img src="/{{ news.nimage }}" style="width: 223px;height: 110px;"/>
                             <h5 class="sss">{{ news.ntitle }}</h5>
-                            <p>{{ news.newcontent }}</p>
+                            <p>{{ news.newcontent | truncatechars:30 }}</p>
                         </li>
                     </a>
                 {% endfor %}
@@ -141,15 +142,15 @@
     </div>
 </div>
 <div id="fanhui">
-    <ul>
-        <li>上一条：<a href="#">筑梦家具保护在线咨询</a></li>
-        <li>下一条：<a href="xiaozhishi.html">筑梦家具保养小常识之（焕然一新）</a></li>
-    </ul>
+{#    <ul>#}
+{#        <li>上一条：<a href="#">筑梦家具保护在线咨询</a></li>#}
+{#        <li>下一条：<a href="xiaozhishi.html">筑梦家具保养小常识之（焕然一新）</a></li>#}
+{#    </ul>#}
     <span>
-    <a href="zixun.html">
-       <img src="/static/images/zs_fhbt.jpg"/>
-       <p>返回</p>
-    </a>
+{#    <a href="zixun.html">#}
+{#       <img src="/static/images/zs_fhbt.jpg"/>#}
+{#       <p>返回</p>#}
+{#    </a>#}
   </span>
 </div>
 

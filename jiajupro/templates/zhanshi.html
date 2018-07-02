@@ -34,11 +34,12 @@
         </div>
         <div class="logo_r">
             <p>免费咨询热线：0588-9988-988</p>
-            <form action="" method="get">
-                <input type="search" value="请输入搜索产品" onfocus="if(this.value=='请输入搜索产品')this.value=''"
+            <form action="{% url 'jiaju:search' %}" method="post">
+                {% csrf_token %}
+                <input type="search" name="keyword" value="请输入搜索产品" onfocus="if(this.value=='请输入搜索产品')this.value=''"
                        onblur="if(this.value=='')this.value='请输入搜索产品'"/>
                 <a href="#">
-                    <img src="/static/images/z_sousuo.jpg"/>
+                    <img src="/static/images/z_sousuo.jpg"style="opacity:0;"/>
                 </a>
             </form>
         </div>
@@ -127,8 +128,7 @@
         </ul>
         {#        列表家居#}
         <ul class="zs_con_tu">
-
-            {% for Furnishing in Furnishing_list  %}
+            {% for Furnishing in post_list.object_list %}
                 <li style="width:315px; height: 450px">
                     <a>
                         <img src="/{{ Furnishing.Fimage }}" style="width: 315px; height: 450px;">
@@ -137,12 +137,8 @@
                         </div>
                         <div class="zs_con_tu_x"></div>
                     </a>
-
                 </li>
-
             {% endfor %}
-
-
         </ul>
 
 
@@ -157,7 +153,7 @@
 {#        </ul>#}
     </div>
 </div>
-
+{% include '_pagination.html' %}
 
 <div id="footer">
     <div class="footer_con">

@@ -82,11 +82,12 @@
         </div>
         <div class="logo_r">
             <p>免费咨询热线：0588-9988-988</p>
-            <form action="" method="get">
-                <input type="search" value="请输入搜索产品" onfocus="if(this.value=='请输入搜索产品')this.value=''"
+            <form action="{% url 'jiaju:search' %}" method="post">
+                {% csrf_token %}
+                <input type="search" name="keyword" value="请输入搜索产品" onfocus="if(this.value=='请输入搜索产品')this.value=''"
                        onblur="if(this.value=='')this.value='请输入搜索产品'"/>
                 <a href="#">
-                    <img src="/static/images/z_sousuo.jpg"/>
+                    <img src="/static/images/z_sousuo.jpg"style="opacity: 0;"/>
                 </a>
             </form>
         </div>
@@ -124,8 +125,8 @@
             </li>
             <li>
                 <div class="nav_con_sy">
-                    <a href="{% url 'jiaju:dongtai' %}">实时动态</a>
-                    <a href="{% url 'jiaju:dongtai' %}">实时动态</a>
+                    <a href="{% url 'jiaju:dongtai'%}">实时动态</a>
+                    <a href="{% url 'jiaju:dongtai'%}">实时动态</a>
                 </div>
             </li>
             <li>
